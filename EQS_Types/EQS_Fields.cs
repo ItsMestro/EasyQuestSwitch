@@ -5,6 +5,9 @@ using UnityEditor;
 using UnityEngine;
 using UnityEngine.Experimental.Rendering;
 using UnityEngine.Rendering;
+#if !UDON
+using VRC.SDK3.Avatars.ScriptableObjects;
+#endif
 
 
 namespace EasyQuestSwitch.Fields
@@ -160,5 +163,14 @@ namespace EasyQuestSwitch.Fields
     [Serializable]
     public class SharedLightShadows : SharedObject<LightShadows> {}
     #endregion
+
+    #if !UDON
+    #region VRC_Expressions
+    [Serializable]
+    public class SharedExpressionsMenu : SharedObject<VRCExpressionsMenu> {}
+    [Serializable]
+    public class SharedExpressionParameters : SharedObject<VRCExpressionParameters> {}
+    #endregion
+    #endif
 }
 #endif
